@@ -42,7 +42,10 @@ function performAction(action, item) {
 //      * Name of the venue
 //      * Venue location
 //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
-function concertThis(concert) {}
+function concertThis(concert) {
+
+    
+}
 
 // function spotifyThisSong() - Spotify API Query
 //
@@ -95,18 +98,22 @@ function spotifyThisSong(song) {
 function movieThis(movie) {
     var axios = require('axios');
     var apikey = keys.omdb.apikey;
+    var queryURLString = "";
 
+    // Default to Mr. Nobody if we don't get a movie request
     if (!movie) {
         movie = "Mr. Nobody";
     }
 
-    // Run the axios.get function...
-    // The axios.get function takes in a URL and returns a promise (just like $.ajax)
+    // Build the url string with the api key and movie title
+    queryURLString = "http://www.omdbapi.com/?apikey=" + apikey + "&" + "t=" + movie;
+
+    // The axios.get function takes in a URL and returns a promise
     axios
-        .get("http://www.omdbapi.com/?apikey=" + apikey + "&" + "t=" + movie)
+        .get(queryURLString)
         .then(function (response) {
             // If the axios was successful...
-            // Then log the body from the site!
+            // Then log the the JSON resposne from the site
             console.log(response.data);
         })
         .catch(function (error) {
