@@ -30,7 +30,7 @@ function performAction(action, item) {
             break;
 
         default:
-            console.log("Usage: npm liri <concert-this|spotify-this-song|movie-this|do-what-it-says> <band|song|movie>");
+            console.log("Usage: node liri <concert-this|spotify-this-song|movie-this|do-what-it-says> <band|song|movie>");
             break;
     }
 }
@@ -42,9 +42,46 @@ function performAction(action, item) {
 //      * Name of the venue
 //      * Venue location
 //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
-function concertThis(concert) {
+function concertThis(artist) {
 
-    
+    var axios = require('axios');
+    var appId = keys.bandsInTown.appId;
+    var queryURLString = "";
+
+    // Default to Ace of Base if we don't get a concert request
+    if (!artist) {
+        artist = "Ace of Base";
+    }
+
+    // Build the url string with the api key and movie title
+    queryURLString = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + appId;
+
+    // The axios.get function takes in a URL and returns a promise
+    axios
+        .get(queryURLString)
+        .then(function (response) {
+            // If the axios was successful...
+            // Then log the the JSON resposne from the site
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+        });
+
 }
 
 // function spotifyThisSong() - Spotify API Query

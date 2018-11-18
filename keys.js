@@ -8,3 +8,7 @@ exports.spotify = {
 exports.omdb = {
     apikey: process.env.OMDB_API_KEY
 }
+
+exports.bandsInTown = {
+    appId: process.env.BANDSINTOWN_APP_ID
+}
