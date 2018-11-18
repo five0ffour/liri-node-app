@@ -4,7 +4,8 @@
   "description": "",
   "main": "keys.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node liri spotify-this-song \"I Want it That Way\"",
+    "test": "node liri spotify-this-song"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/five0ffour/liri-node-app/issues"
   },
-  "homepage": "https://github.com/five0ffour/liri-node-app#readme"
+  "homepage": "https://github.com/five0ffour/liri-node-app#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.1.0",
+    "node-spotify-api": "^1.0.7",
+    "omdb": "^0.8.0"
+  }
 }

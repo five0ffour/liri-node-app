@@ -1,39 +1,36 @@
 // Read and set environment variables using dotenv
 var dotenv = require("dotenv").config();
-var keys = require("keys.js");
-var fs = require("fs");
-
-// Load spotify 
-var spotify = new Spotify(keys.spotify);
+var keys = require("./keys.js");
+// var fs = require("fs");
 
 // Process Command from CLI
 var action = process.argv[2];
-var cmd = proess.argv[3];
-performAction(cmd);
+var item = process.argv[3];
+performAction(action, item);
 
 // function performAction() - executes the specified command to query Spotify, OMDB or Bands-In-Town
 //
-function performAction(action) {
+function performAction(action, item) {
 
-    switch(action) {
+    switch (action) {
         case 'concert-this':
             concertThis(item);
             break;
-    
+
         case 'spotify-this-song':
             spotifyThisSong(item);
             break;
-    
+
         case 'movie-this':
             movieThis(item);
             break;
-    
+
         case 'do-what-it-says':
             doWhatItSays();
             break;
     }
 }
- 
+
 // function concertThis() - BandsInTown API Query
 // 
 //   This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) 
@@ -41,8 +38,7 @@ function performAction(action) {
 //      * Name of the venue
 //      * Venue location
 //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
-function concertThis(concert) {
-}
+function concertThis(concert) {}
 
 // function spotifyThisSong() - Spotify API Query
 //
@@ -53,7 +49,27 @@ function concertThis(concert) {
 //      * The album that the song is from
 //  If no song is provided then the function will default to "The Sign" by Ace of Base.
 function spotifyThisSong(song) {
+    // Load spotify 
+    var Spotify = require('node-spotify-api');  
+    var spotify = new Spotify(keys.spotify);
 
+    // Default to "The Sign" by Ace of Base if no song provided
+    if (!song ) {
+        song = "The Sign";
+    }
+
+    // Execute the query as a promise
+    spotify
+        .search({
+            type: 'track',
+            query: song
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }
 
 // function movieThis() - OMDB API Query
@@ -70,7 +86,8 @@ function spotifyThisSong(song) {
 //   * Actors in the movie.
 // 
 // * If the user doesn't type a movie in, the function will output data for the movie 'Mr. Nobody.'
-// * You'll use the `axios` package to retrieve data from the OMDB API. Like all of the in-class activities, the OMDB API requires an API key. You may use `trilogy`.
+// * You'll use the `axios` package to retrieve data from the OMDB API. Like all of the in-class activities, the OMDB API requires an API key. 
+// * You may use `trilogy`.
 function movieThis(movie) {
 
 }
