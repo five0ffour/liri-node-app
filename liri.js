@@ -28,6 +28,10 @@ function performAction(action, item) {
         case 'do-what-it-says':
             doWhatItSays();
             break;
+
+        default:
+            console.log("Usage: npm liri <concert-this|spotify-this-song|movie-this|do-what-it-says> <band|song|movie>");
+            break;
     }
 }
 
@@ -50,11 +54,11 @@ function concertThis(concert) {}
 //  If no song is provided then the function will default to "The Sign" by Ace of Base.
 function spotifyThisSong(song) {
     // Load spotify 
-    var Spotify = require('node-spotify-api');  
+    var Spotify = require('node-spotify-api');
     var spotify = new Spotify(keys.spotify);
 
     // Default to "The Sign" by Ace of Base if no song provided
-    if (!song ) {
+    if (!song) {
         song = "The Sign";
     }
 
@@ -89,6 +93,39 @@ function spotifyThisSong(song) {
 // * You'll use the `axios` package to retrieve data from the OMDB API. Like all of the in-class activities, the OMDB API requires an API key. 
 // * You may use `trilogy`.
 function movieThis(movie) {
+    var axios = require('axios');
+    var apikey = keys.omdb.apikey;
+
+    if (!movie) {
+        movie = "Mr. Nobody";
+    }
+
+    // Run the axios.get function...
+    // The axios.get function takes in a URL and returns a promise (just like $.ajax)
+    axios
+        .get("http://www.omdbapi.com/?apikey=" + apikey + "&" + "t=" + movie)
+        .then(function (response) {
+            // If the axios was successful...
+            // Then log the body from the site!
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+        });
 
 }
 
