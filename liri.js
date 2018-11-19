@@ -1,15 +1,24 @@
+
+//======= BEGIN MAIN() ==========================================================================================
+
 // Read and set environment variables using dotenv
 var dotenv = require("dotenv").config();
 var keys = require("./keys.js");
-// var fs = require("fs");
 
 // Process Command from CLI
 var action = process.argv[2];
 var item = process.argv[3];
 performAction(action, item);
 
+return(0);
+
+//======= END MAIN() ==========================================================================================
+
 // function performAction() - executes the specified command to query Spotify, OMDB or Bands-In-Town
-//
+//      * concert-this <band/artist>
+//      * spotify-this-song <song>
+//      * movie-this <movie>
+//      * do-what-it-says 
 function performAction(action, item) {
 
     switch (action) {
@@ -35,6 +44,7 @@ function performAction(action, item) {
     }
 }
 
+//-----------------------------------------------------------------------
 // function concertThis() - BandsInTown API Query
 // 
 //   This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) 
@@ -84,6 +94,7 @@ function concertThis(artist) {
 
 }
 
+//-----------------------------------------------------------------------
 // function spotifyThisSong() - Spotify API Query
 //
 // * This will show the following information about the song in the terminal/bash window
@@ -116,6 +127,7 @@ function spotifyThisSong(song) {
         });
 }
 
+//-----------------------------------------------------------------------
 // function movieThis() - OMDB API Query
 //
 // This will output the following information to the terminal/bash window:
@@ -149,14 +161,13 @@ function movieThis(movie) {
     axios
         .get(queryURLString)
         .then(function (response) {
-            // If the axios was successful...
-            // Then log the the JSON resposne from the site
+            // Success -  log the JSON resposne from the site
             console.log(response.data);
         })
         .catch(function (error) {
+            // Error - log an error based on its type
             if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
+                // The request was made and the server responded with a status codethat falls out of the range of 2xx
                 console.log(error.response.data);
                 console.log(error.response.status);
                 console.log(error.response.headers);
@@ -173,11 +184,25 @@ function movieThis(movie) {
 
 }
 
+//-----------------------------------------------------------------------
 // function doWhatItSays() - FS file based interface
 //
 // * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 // * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
 // * Edit the text in random.txt to test out the feature for movie-this and concert-this.
 function doWhatItSays() {
+    var fs = require("fs");
 
+    // Read our action(s) from the file using a callback
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+
+        // Parse the command line into the action and the item
+        var cmdLine = data.split(",");
+        var action = cmdLine[0];
+        var item = cmdLine[1];
+        performAction(action, item);
+    });
 }

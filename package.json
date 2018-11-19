@@ -5,7 +5,7 @@
   "main": "keys.js",
   "scripts": {
     "start" : "node liri spotify-this-song \"I Want it That Way\"",
-    "test": "node liri spotify-this-song"
+    "test": "node liri spotify-this-song \"She's got Legs\" && node liri movie-this Sharknado && node liri concert-this \"ZZ Top\""
   },
   "repository": {
     "type": "git",

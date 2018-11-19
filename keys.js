@@ -1,4 +1,4 @@
-console.log('loaded keys.js');
+console.log('<-----  loading environment variables/api keys  ----->');
 
 exports.spotify = {
     id: process.env.SPOTIFY_ID,
