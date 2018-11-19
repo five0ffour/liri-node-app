@@ -38,7 +38,7 @@ function movieThis(movie) {
         .get(queryURLString)
         .then(function (response) {
             // Success -  log the JSON resposne from the site
-            console.log(response.data);
+            parseOMDBResponse(response.data);
         })
         .catch(function (error) {
             // Error - log an error based on its type
@@ -58,4 +58,49 @@ function movieThis(movie) {
             console.log(error.config);
         });
 
+}
+
+
+// *private* function parseOMDBResponse(data) 
+//
+// This will output the following information to the terminal/bash window:
+// 
+//   * Title of the movie.
+//   * Year the movie came out.
+//   * IMDB Rating of the movie.
+//   * Rotten Tomatoes Rating of the movie.
+//   * Country where the movie was produced.
+//   * Language of the movie.
+//   * Plot of the movie.
+//   * Actors in the movie.
+function parseOMDBResponse(data) {
+
+    console.log("Title: " + data.Title);
+    console.log("Year: " + data.Year);
+
+    // Loop, format and print the movie ratings
+    var ratings = data.Ratings;
+    ratings.forEach(rating => {
+        switch (rating.Source) {
+            case "Internet Movie Database":
+                console.log("IMDB Rating: " + rating.Value);
+                break;
+            case "Rotten Tomatoes":
+                console.log("Rotton Tomatoes Rating: " + rating.Value);
+                break;
+        }
+    });
+
+    console.log("Country Produced: " + data.Country);
+    console.log("Language: " + data.Language);
+    console.log("Plot: " + data.Plot);
+
+    // Loop, format and print the actors on their own lines
+    var actors = data.Actors.split(", ");
+    console.log("Actors:");
+    console.log("=======");
+    actors.forEach(actor => {
+        console.log("   " + actor);
+    });
+    console.log("------------------------------------");
 }
