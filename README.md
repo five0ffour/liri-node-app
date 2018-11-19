@@ -1,1 +1,4 @@
-# liri-node-app
+# liri-node-app  
+
+# demonstration of functionality  
+
