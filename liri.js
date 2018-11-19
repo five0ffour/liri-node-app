@@ -1,4 +1,3 @@
-
 //======= BEGIN MAIN() ==========================================================================================
 
 // Read and set environment variables using dotenv
@@ -10,7 +9,7 @@ var action = process.argv[2];
 var item = process.argv[3];
 performAction(action, item);
 
-return(0);
+return (0);
 
 //======= END MAIN() ==========================================================================================
 
@@ -57,7 +56,7 @@ function concertThis(artist) {
 
     // Default to Ace of Base if we don't get a concert request
     if (!artist) {
-        artist = "Ace of Base";
+        artist = "ZZ Top";
     }
 
     // Build the url string with the api key and movie title
@@ -68,7 +67,7 @@ function concertThis(artist) {
         .get(queryURLString)
         .then(function (response) {
             // Success - log the the JSON response from the site
-            parseBandsInTownResponse(response.data)
+            parseBandsInTownResponse(response.data);
         })
         .catch(function (error) {
             if (error.response) {
@@ -96,15 +95,14 @@ function concertThis(artist) {
 //      * Name of the venue
 //      * Venue location
 //      * Date of the Event (use moment to format this as "MM/DD/YYYY") 
-function parseBandsInTownResponse(data)
-{
+function parseBandsInTownResponse(data) {
     var moment = require('moment');
 
     // Loop through the events and write formatted responses to the console
     data.forEach(event => {
 
         // Strip off the date from the event resposne and pass it to moment for formatting
-        var eventDate = moment(event.datetime,"YYYY/MM/DD HH:mm:ss");
+        var eventDate = moment(event.datetime, "YYYY/MM/DD HH:mm:ss");
 
         // Format the location
         var venue = event.venue.city;
@@ -216,17 +214,20 @@ function movieThis(movie) {
 // * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 // * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
 // * Edit the text in random.txt to test out the feature for movie-this and concert-this.
+//
+//  Note:  modified from specs to read multiple lines from text file and process asynchronously
 function doWhatItSays() {
-    var fs = require("fs");
+    var readline = require('readline');
+    var fs = require('fs');
+    
+    // create an event handler to register lines input from random.txt
+    var lineReader = readline.createInterface({
+        input: fs.createReadStream('random.txt')
+    });
 
-    // Read our action(s) from the file using a callback
-    fs.readFile("random.txt", "utf8", function (err, data) {
-        if (err) {
-            return console.log(err);
-        }
-
-        // Parse the command line into the action and the item
-        var cmdLine = data.split(",");
+    // event handle to process each line of the file, pass to action multiplexer
+    lineReader.on('line', function (line) {
+        var cmdLine = line.split(",");
         var action = cmdLine[0];
         var item = cmdLine[1];
         performAction(action, item);
