@@ -14,7 +14,8 @@ var keys = require("./keys.js");
 //      * The album that the song is from
 //  If no song is provided then the function will default to "The Sign" by Ace of Base.
 function spotifyThisSong(song) {
-    // Load spotify 
+
+    // Load spotify API
     var Spotify = require('node-spotify-api');
     var spotify = new Spotify(keys.spotify);
 
@@ -30,9 +31,33 @@ function spotifyThisSong(song) {
             query: song
         })
         .then(function (response) {
-            console.log(response);
+            parseSpotifyResponse(response);
         })
         .catch(function (err) {
             console.log(err);
+        });
+}
+
+// *private* function parseSpotifyResponse(data) 
+//
+// *This will show the following information about the song in the terminal/bash window
+//      * Artist(s)
+//      * The song's name
+//      * A preview link of the song from Spotify
+//      * The album that the song is from
+function parseSpotifyResponse(data) {
+  
+    // Loop through the albums and write formatted responses to the console
+    var items = data.tracks.items;
+    items.forEach(item => {
+        // Loop through each artist on the album and write it out
+        var artists = item.artists;
+        artists.forEach(artist => {
+            console.log("Artist name:  " + artist.name);
+        });
+
+        console.log("Album name:  "  + item.album.name);
+        console.log("Preview Link:  "  + item.preview_url);
+        console.log("------------------------------------");
         });
 }
