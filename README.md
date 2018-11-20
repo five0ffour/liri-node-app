@@ -12,26 +12,26 @@ Examples:
         > node liri do-what-it-says  
   
 LIRI supports the follow commands and yields the corresponding content:
-
-        | Command           | Result                                       |  
-        | ----------------- | -------------------------------------------- |  
-        | spotify-this-song | Artist(s)                                    |  
-        |                   | The song's name                              |  
-        |                   | A preview link of the song from Spotify      |  
-        |                   | The album that the song is from              |  
-        | concert-this      | Name of the venue                            |  
-        |                   | Venue location                               |  
-        |                   | Date of the Event                            |  
-        | movie-this        | Title of the movie                           |   
-        |                   | Year the movie came out                      |  
-        |                   | IMDB Rating of the movie                     |  
-        |                   | Rotten Tomatoes Rating of the movie          |  
-        |                   | Country where the movie was produced         |  
-        |                   | Language of the movie                        |  
-        |                   | Plot of the movie                            |  
-        |                   | Actors in the movie                          |  
-        | do-what-I-say     | Runs the commands found in file random.txt   |  
-        | prompt-me         | Prompts the user through the commands to run |  
+  
+| Command           | Result                                       |
+| ----------------- | -------------------------------------------- |
+| spotify-this-song | Artist(s)                                    |
+|                   | The song's name                              |
+|                   | A preview link of the song from Spotify      |
+|                   | The album that the song is from              |
+| concert-this      | Name of the venue                            |
+|                   | Venue location                               |
+|                   | Date of the event                            |
+| movie-this        | Title of the movie                           |
+|                   | Year the movie came out                      |
+|                   | IMDB Rating of the movie                     |
+|                   | Rotten Tomatoes rating of the movie          |
+|                   | Country where the movie was produced         |
+|                   | Language of the movie                        |
+|                   | Plot of the movie                            |
+|                   | Actors in the movie                          |
+| do-what-I-say     | Runs the commands found in file random.txt   |
+| prompt-me         | Prompts the user through the commands to run |
    
 Note:  
         LIRI doesn't like being stood up.  If you can't decide what movie or song to search,  LIRI will supply one for you  
