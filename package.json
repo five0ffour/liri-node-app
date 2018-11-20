@@ -5,7 +5,8 @@
   "main": "keys.js",
   "scripts": {
     "start": "node liri spotify-this-song \"I Want it That Way\"",
-    "test": "node liri spotify-this-song \"She's got Legs\" && node liri movie-this Sharknado && node liri concert-this \"ZZ Top\""
+    "test": "node liri spotify-this-song \"She's got Legs\" && node liri movie-this Sharknado && node liri concert-this \"ZZ Top\"",
+    "blank-test": "node liri spotify-this-song && node liri movie-this"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^6.1.0",
+    "inquirer": "^6.2.0",
     "moment": "^2.22.2",
     "node-spotify-api": "^1.0.7",
     "omdb": "^0.8.0"

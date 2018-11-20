@@ -3,6 +3,7 @@ module.exports =  concertThis;
 
 // Get the API Keys
 var keys = require("./keys.js");
+var moment = require('moment');
 
 //-----------------------------------------------------------------------
 // *public* function concertThis() - BandsInTown API Query
@@ -43,7 +44,7 @@ function concertThis(artist) {
                 console.log(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                console.log("Error", error.message);
+                console.log("Error: ", error.message);
             }
             console.log(error.config);
         });
@@ -57,7 +58,6 @@ function concertThis(artist) {
 //      * Venue location
 //      * Date of the Event (use moment to format this as "MM/DD/YYYY") 
 function parseBandsInTownResponse(data) {
-    var moment = require('moment');
 
     // Loop through the events and write formatted responses to the console
     data.forEach(event => {
