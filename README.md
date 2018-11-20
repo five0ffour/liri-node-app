@@ -15,21 +15,9 @@ LIRI supports the follow commands and yields the corresponding content:
   
 | Command           | Result                                       |
 | ----------------- | -------------------------------------------- |
-| spotify-this-song | Artist(s)                                    |
-|                   | The song's name                              |
-|                   | A preview link of the song from Spotify      |
-|                   | The album that the song is from              |
-| concert-this      | Name of the venue                            |
-|                   | Venue location                               |
-|                   | Date of the event                            |
-| movie-this        | Title of the movie                           |
-|                   | Year the movie came out                      |
-|                   | IMDB Rating of the movie                     |
-|                   | Rotten Tomatoes rating of the movie          |
-|                   | Country where the movie was produced         |
-|                   | Language of the movie                        |
-|                   | Plot of the movie                            |
-|                   | Actors in the movie                          |
+| spotify-this-song | Artist(s)<br>The song's name<br>A preview link of the song from Spotify<br>The album that the song is from |
+| concert-this      | Name of the venue<br>Venue location<br>Date of the event |
+| movie-this        | Title of the movie<br>Year the movie came out<br>IMDB Rating of the movie<br>Rotten Tomatoes rating of the movie<br>Country where the movie was produced<br>Language of the movie<br>Plot of the movie<br>Actors in the movie |
 | do-what-I-say     | Runs the commands found in file random.txt   |
 | prompt-me         | Prompts the user through the commands to run |
    
