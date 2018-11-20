@@ -1,7 +1,7 @@
 # liri-node-app  
 
 ### Overview  
-LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a _Language_ Interpretation and Recognition Interface. LIRI is a _command line_ node app that takes in parameters, calls internet APIs and gives back parsed text data.
+LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a __Language__ Interpretation and Recognition Interface. LIRI is a __command line__ node app that takes in parameters, calls internet APIs and gives back parsed text data.
 
 Command line syntax:  
         > node liri {concert-this|spotify-this-song|movie-this|do-what-it-says} {band|song|movie}
@@ -39,19 +39,19 @@ Note:
 ### Demonstration of Functionality  
 
 ### Developer notes  
-.env:  environment variables used by dotenv package holding secret keys and passwords for API, not included in GIT
-bandsInTown.js: the API logic to query bandsintown API  
-keys.js:  Module exporting the client keys and passwords
-liri.js:  main entry point and command line interface  
-omdb.js:  logic to query the omdb movie api  
-random.txt:  comma delimited text file of actions and item pairs  
-spotify.js:  logic to query the Spotify API for songs   
+- **.env:**  environment variables used by dotenv package holding secret keys and passwords for API, not included in GIT
+- **bandsInTown.js:** the API logic to query bandsintown API  
+- **keys.js:**  Module exporting the client keys and passwords
+- **liri.js:**  main entry point and command line interface  
+- **omdb.js:**  logic to query the omdb movie api  
+- **random.txt:**  comma delimited text file of actions and item pairs  
+- **spotify.js:**  logic to query the Spotify API for songs   
 
-Spotify API can be found at:  https://developer.spotify.com/
-OMDB API can be found at: http://www.omdbapi.com/    
-BandsInTown API can be found at: https://manager.bandsintown.com/support/bandsintown-api
+- Spotify API can be found at:  https://developer.spotify.com/
+- OMDB API can be found at: http://www.omdbapi.com/    
+- BandsInTown API can be found at: https://manager.bandsintown.com/support/bandsintown-api
 
-All APIs require an email to get a registered key  
+*All APIs require an email to get a registered key*  
 
 ### How to install/run the application  
 
@@ -68,6 +68,6 @@ All APIs require an email to get a registered key
 - Node fs  
  
 ## Authors  
-Michael Galarneau - Initial work - five0fFour  
+Michael Galarneau - Initial work - five0ffour  
   
 ### Acknowledgements  
