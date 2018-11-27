@@ -53,7 +53,7 @@ function performAction(action, item) {
             break;
 
         default:
-            console.log("Usage: node liri <concert-this|spotify-this-song|movie-this|do-what-it-says> <band|song|movie>");
+            console.log("Usage: node liri <concert-this|spotify-this-song|movie-this|do-what-it-says|prompt-me> <band|song|movie>");
             break;
     }
 }

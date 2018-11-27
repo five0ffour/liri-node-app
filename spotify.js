@@ -1,5 +1,5 @@
 // Export the public function
-module.exports =  spotifyThisSong;
+module.exports = spotifyThisSong;
 
 // Get the API Keys
 var keys = require("./keys.js");
@@ -21,14 +21,17 @@ function spotifyThisSong(song) {
 
     // Default to "The Sign" by Ace of Base if no song provided
     if (!song) {
-        song = "The Sign";
+        song = "\"The Sign\"";
     }
+    else
+        song = "\"" + song + "\"";
 
     // Execute the query as a promise
     spotify
         .search({
             type: 'track',
-            query: song
+            query: song,
+            limit: 10
         })
         .then(function (response) {
             parseSpotifyResponse(response);
@@ -46,7 +49,7 @@ function spotifyThisSong(song) {
 //      * A preview link of the song from Spotify
 //      * The album that the song is from
 function parseSpotifyResponse(data) {
-  
+
     // Loop through the albums and write formatted responses to the console
     var items = data.tracks.items;
     items.forEach(item => {
@@ -56,8 +59,11 @@ function parseSpotifyResponse(data) {
             console.log("Artist name:  " + artist.name);
         });
 
-        console.log("Album name:  "  + item.album.name);
-        console.log("Preview Link:  "  + item.preview_url);
+        console.log("Album name:  " + item.album.name);
+        if (item.preview_url) {
+            console.log("Preview Link:  " + item.preview_url);
+        }
+
         console.log("------------------------------------");
-        });
+    });
 }
