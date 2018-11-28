@@ -3,7 +3,7 @@
 ### Overview  
 LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a __Language__ Interpretation and Recognition Interface. LIRI is a __command line__ node app that takes in parameters, calls internet APIs and gives back parsed text data.   LIRI's basic function is to query songs from Spotify,  movies from OMDB and concert events from BandsInTown.com.
     
-LIRI is a command line application, not a web app.  To use LIRI it will need to be installed locally and access through a series of command line calls.   The actual syntax is listed below, as well as some sample calls and output.  
+LIRI is a command line application, not a web app.  To use LIRI it will need to be installed locally and access through a series of command line calls using Node.js.   The actual syntax is listed below, as well as some sample calls and output.  
   
 __Command line syntax:__   
         `$ node liri {concert-this|spotify-this-song|movie-this|do-what-it-says} {band|song|movie}`   
