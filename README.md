@@ -96,8 +96,10 @@ __7) Bonus Feature - log.txt__
   
 __Note:__  the .gitignore file is coded to preven your keys from being shared in your own git repository if  you so choose    
 
-1. Test the build using the supplied scripts.  Liri will run through through a sample call to each of the three backend APIS and display them on the console  
-   `npm test`  
+5. Test the build using the supplied scripts.  Liri will run through through a sample call to each of the three backend APIS and display them on the console  
+   `npm test`
+6. Run a command manuallly from the command line
+   `npm liri spotify-this-song "your favorite song here"  
   
 ### Technology Used
     
