@@ -99,7 +99,7 @@ __Note:__  the .gitignore file is coded to preven your keys from being shared in
 5. Test the build using the supplied scripts.  Liri will run through through a sample call to each of the three backend APIS and display them on the console  
    `npm test`
 6. Run a command manuallly from the command line  
-   `npm liri spotify-this-song "your favorite song here"  
+   `node liri spotify-this-song "your favorite song here"  
   
 ### Technology Used
     
