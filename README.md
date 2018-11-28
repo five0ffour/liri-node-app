@@ -1,15 +1,17 @@
 # liri-node-app  
 
 ### Overview  
-LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a __Language__ Interpretation and Recognition Interface. LIRI is a __command line__ node app that takes in parameters, calls internet APIs and gives back parsed text data.
+LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a __Language__ Interpretation and Recognition Interface. LIRI is a __command line__ node app that takes in parameters, calls internet APIs and gives back parsed text data.   LIRI's basic function is to query songs from Spotify,  movies from OMDB and concert events from BandsInTown.com.
+    
+LIRI is a command line application, not a web app.  To use LIRI it will need to be installed locally and access through a series of command line calls.   The actual syntax is listed below, as well as some sample calls and output.  
   
-Command line syntax:   
-        > node liri {concert-this|spotify-this-song|movie-this|do-what-it-says} {band|song|movie}  
-Examples:  
-        > node liri concert-this "ZZ Top"  
-        > node liri spotify-this-song "The Windmills of Your Mind"  
-        > node liri movie-this "Ex Machina"  
-        > node liri do-what-it-says  
+__Command line syntax:__   
+        `$ node liri {concert-this|spotify-this-song|movie-this|do-what-it-says} {band|song|movie}`   
+__Examples:__  
+        `$ node liri concert-this "ZZ Top"`  
+        `$ node liri spotify-this-song "The Windmills of Your Mind"`  
+        `$ node liri movie-this "Ex Machina"`  
+        `$ node liri do-what-it-says`  
   
 LIRI supports the follow commands and yields the corresponding content:
   
@@ -24,6 +26,8 @@ LIRI supports the follow commands and yields the corresponding content:
 __Note:__ LIRI doesn't like being stood up.  If you can't decide what movie or song to search,  LIRI will supply one for you  
 
 ### Demonstration of Functionality 
+
+Each of the following six screenshots give an example of how to call the interface and what to expect from the results.
 
 1) node liri spotify-this-song "Windmills of Your Mind""  
 ![node liri spotify-this-song "Windmills of Your Mind"](./assets/images/spotify-this-song-sample.PNG)
@@ -95,6 +99,7 @@ __Note:__  the .gitignore file is coded to preven your keys from being shared in
   
 ## Authors  
 Michael Galarneau - Initial work - five0ffour  
+November, 2018  
   
 ### Acknowledgements  
 Spotify - https://www.spotify.com  
