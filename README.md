@@ -33,7 +33,7 @@ Each of the following six screenshots give an example of how to call the interfa
 
 1) node liri spotify-this-song "Windmills of Your Mind""   
    Sample call to spotify API returning info from the top ten artists publishing the requested song   
-   Notice that the links can be cut & pasted into a browser to hear a sample of the song (if avaialbe)    
+   Notice that the links can be cut & pasted into a browser to hear a sample of the song (if available)    
 ![node liri spotify-this-song "Windmills of Your Mind"](./assets/images/spotify-this-song-sample.PNG)
   
 1) node liri movie-this "Ex Machina"    
