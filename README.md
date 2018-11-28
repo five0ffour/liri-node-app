@@ -6,7 +6,8 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 LIRI is a command line application, not a web app.  To use LIRI it will need to be installed locally and access through a series of command line calls using Node.js.   The actual syntax is listed below, as well as some sample calls and output.  
   
 __Command line syntax:__   
-        `$ node liri {concert-this|spotify-this-song|movie-this|do-what-it-says} {band|song|movie}`   
+        `$ node liri {concert-this|spotify-this-song|movie-this|do-what-it-says} {band|song|movie}`
+     
 __Examples:__  
         `$ node liri concert-this "ZZ Top"`  
         `$ node liri spotify-this-song "The Windmills of Your Mind"`    
@@ -32,10 +33,11 @@ Each of the following six screenshots give an example of how to call the interfa
 
 1) node liri spotify-this-song "Windmills of Your Mind""   
    Sample call to spotify API returning info from the top ten artists publishing the requested song   
+   Notice that the links can be cut & pasted into a browser to hear a sample of the song (if avaialbe)    
 ![node liri spotify-this-song "Windmills of Your Mind"](./assets/images/spotify-this-song-sample.PNG)
   
 1) node liri movie-this "Ex Machina"    
-  Sample call to the Oneline Movie Database displaying information about the requested movie  
+  Sample call to the Online Movie Database displaying information about the requested movie  
 ![node liri movie-this "Ex Machina"](./assets/images/movie-this-sample.PNG)
   
 3) node liri concert-this "ZZ Top"  
