@@ -1,5 +1,6 @@
-// Export the public function
-module.exports =  movieThis;
+//---------------------------------------------------------------
+// omdb.js - public function to query the OMDB Movie API
+//---------------------------------------------------------------
 
 // Get the API Keys
 var keys = require("./keys.js");
@@ -105,3 +106,6 @@ function parseOMDBResponse(data) {
     });
     logContent("------------------------------------");
 }
+
+// Export the public function
+module.exports =  movieThis;

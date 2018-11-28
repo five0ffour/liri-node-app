@@ -1,3 +1,6 @@
+//---------------------------------------------------------------
+// util.js - public function to log content to the console and text file
+//---------------------------------------------------------------
 
 var fs = require("fs");
 
@@ -13,4 +16,5 @@ function logContent(content) {
       });	
 }
 
+// Public export
 module.exports = logContent;

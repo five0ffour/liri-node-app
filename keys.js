@@ -1,3 +1,8 @@
+//--------------------------------------------
+// keys.js - secret keys for the API calls
+//         - environment variables are set via the require("dotenv").config() call
+//--------------------------------------------
+
 //  console.log('this is loaded');
 
 exports.spotify = {

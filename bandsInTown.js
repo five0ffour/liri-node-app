@@ -1,7 +1,6 @@
-// Export the public function
-module.exports =  concertThis;
-
-// Get the API Keys
+//---------------------------------------------------------------
+// bandsInTown.js - public function to query the BandsInTown API
+//---------------------------------------------------------------
 var moment = require('moment');
 
 var keys = require("./keys.js");
@@ -80,3 +79,6 @@ function parseBandsInTownResponse(data) {
         logContent("------------------------------------");
     });
 }
+
+// Export the public function
+module.exports =  concertThis;

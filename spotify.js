@@ -1,5 +1,6 @@
-// Export the public function
-module.exports = spotifyThisSong;
+//---------------------------------------------------------------
+// spotify.js - public function to query the Spotify Music API
+//---------------------------------------------------------------
 
 // Get the API Keys
 var keys = require("./keys.js");
@@ -42,6 +43,7 @@ function spotifyThisSong(song) {
         });
 }
 
+//-------------------------------------------------------------------
 // *private* function parseSpotifyResponse(data) 
 //
 // *This will show the following information about the song in the terminal/bash window
@@ -68,3 +70,8 @@ function parseSpotifyResponse(data) {
         logContent("------------------------------------");
     });
 }
+
+//------------------------------
+// Export the public function
+//------------------------------
+module.exports = spotifyThisSong;

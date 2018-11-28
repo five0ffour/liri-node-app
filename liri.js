@@ -1,17 +1,17 @@
-/****************** */
-/* GLOBAL VARIABLES */
-/****************** */
+//-------------------------------------------------------
+// liri.js - main entry point for this application.
+//         - See README.md for a detail explanation of the interface
+//-------------------------------------------------------
 
 // Read and set environment variables using dotenv
-var fs = require('fs');
 var dotenv = require("dotenv").config();
+var fs = require('fs');
 var readline = require('readline');
 var inquirer = require("Inquirer");
 
 var movieThis = require("./omdb.js");
 var spotifyThisSong = require("./spotify.js");
 var concertThis = require("./bandsInTown.js");
-var keys = require("./keys.js");
 
 //---------------------------------------------
 // function main() - the entry point of the program.  Intended to allow for multiplue user interfaces to our interface.

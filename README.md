@@ -72,6 +72,7 @@ __7) Bonus Feature - log.txt__
 - **omdb.js:**  logic to query the omdb movie api  
 - **random.txt:**  comma delimited text file of actions and item pairs  
 - **spotify.js:**  logic to query the Spotify API for songs   
+- **util.js:**  logging utility to write output to console and log.txt file
   
 - Spotify API can be found at:  https://developer.spotify.com/
 - OMDB API can be found at: http://www.omdbapi.com/    
@@ -112,6 +113,7 @@ __Note:__  the .gitignore file is coded to preven your keys from being shared in
 | npm Spotify       | __1.0.7__  | Package that interfaces back to the spotify API servers                  |
 | npm dotenv        | __6.1.0__  | Utility package to hide the secret keys in a .env file and away from git |
 | Node fs           | n/a        | Built in file system utility package for reading/writing files           |
+| Node readline     | n/a        | Built in I/O function to read lines from a text file                     |
 | Spotify API       | n/a        | Website interface to access an online song databse                       |
 | BandsInTown API   | n/a        | Website interface to access an online concert events                     |
 | OMDB API          | __0.8.0__  | Website inteface to access an online movie databse                       |
