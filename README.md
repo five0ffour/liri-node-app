@@ -31,36 +31,36 @@ Finally, as a __bonus feature__,  LIRI will log all results to the text file log
   
 ### Demonstration of Functionality 
 
-Each of the following six screenshots give an example of how to call the interface and what to expect from the results.
+Each of the following seven screenshots give an example of how to call the interface and what to expect from the results.
 
-1) node liri spotify-this-song "Windmills of Your Mind""   
+__1) node liri spotify-this-song "Windmills of Your Mind""__     
    Sample call to spotify API returning info from the top ten artists publishing the requested song   
    Notice that the links can be cut & pasted into a browser to hear a sample of the song (if available)    
 ![node liri spotify-this-song "Windmills of Your Mind"](./assets/images/spotify-this-song-sample.PNG)
   
-1) node liri movie-this "Ex Machina"    
+__2) node liri movie-this "Ex Machina"__    
   Sample call to the Online Movie Database displaying information about the requested movie  
 ![node liri movie-this "Ex Machina"](./assets/images/movie-this-sample.PNG)
   
-3) node liri concert-this "ZZ Top"  
+__3) node liri concert-this "ZZ Top"__  
    Sample call to the Bands-In-Town API displaying information about the upcoming concerts  
 ![node liri concert-this "ZZ Top"](./assets/images/concert-this-sample.PNG)
 
-4) node liri do-what-it-says   
+__4) node liri do-what-it-says__   
    Sample call to read the content of random.txt file and execute the commands   
    Note the screenshot displays the content of the text file first indicating what commands would be run  
 ![node liri do-what-it-says](./assets/images/dowhatitsays-sample.PNG)
   
-5) node liri prompt-me  
+__5) node liri prompt-me__  
    The prompt-me interface walks you through the commands and needed parameters one by one  
 ![node liri prompt-me](./assets/images/prompt-me-sample.PNG)
   
-6) node liri [spotify-this-song|movie-this] {blank}   
+__6) node liri [spotify-this-song|movie-this] {blank}__   
    Sample response when LIRI isn't given a movie or song to search   
    Spolier:  the song is "The Sign" by Ace of Base and the movie is "Mr. Nobody"  
 ![node liri [spotify-this-song|movie-this] <blank>](./assets/images/nochoice-samples.PNG)
   
-1) Bonus Feature - log.txt   
+__7) Bonus Feature - log.txt__   
    LIRI logs all the results to a file named log.txt.  If you lost the results scrolling off the screen, you can always find it in this file   
 ![log.txt](./assets/images/log-txt-sample.PNG)
   
