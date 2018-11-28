@@ -3,7 +3,14 @@
 /****************** */
 
 // Read and set environment variables using dotenv
+var fs = require('fs');
 var dotenv = require("dotenv").config();
+var readline = require('readline');
+var inquirer = require("Inquirer");
+
+var movieThis = require("./omdb.js");
+var spotifyThisSong = require("./spotify.js");
+var concertThis = require("./bandsInTown.js");
 var keys = require("./keys.js");
 
 //---------------------------------------------
@@ -30,17 +37,14 @@ function performAction(action, item) {
 
     switch (action) {
         case 'concert-this':
-            var concertThis = require("./bandsInTown.js");
             concertThis(item);
             break;
 
         case 'spotify-this-song':
-            var spotifyThisSong = require("./spotify.js");
             spotifyThisSong(item);
             break;
 
         case 'movie-this':
-            var movieThis = require("./omdb.js");
             movieThis(item);
             break;
 
@@ -67,8 +71,6 @@ function performAction(action, item) {
 //
 //  Note:  modified from specs to read multiple lines from text file and process asynchronously
 function doWhatItSays() {
-    var readline = require('readline');
-    var fs = require('fs');
 
     // create an event handler to register lines input from random.txt
     var lineReader = readline.createInterface({
@@ -90,7 +92,6 @@ function doWhatItSays() {
 //
 // Uses the Inquirer interface to prompt the user through the questions
 function promptMe() {
-    var inquirer = require("Inquirer");
 
     // Walk them through the various application options
     inquirer.prompt([{

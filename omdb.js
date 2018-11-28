@@ -3,6 +3,7 @@ module.exports =  movieThis;
 
 // Get the API Keys
 var keys = require("./keys.js");
+var logContent = require("./util.js");
 
 //-----------------------------------------------------------------------
 // *public* function movieThis() - OMDB API Query
@@ -75,32 +76,32 @@ function movieThis(movie) {
 //   * Actors in the movie.
 function parseOMDBResponse(data) {
 
-    console.log("Title: " + data.Title);
-    console.log("Year: " + data.Year);
+    logContent("Title: " + data.Title);
+    logContent("Year: " + data.Year);
 
     // Loop, format and print the movie ratings
     var ratings = data.Ratings;
     ratings.forEach(rating => {
         switch (rating.Source) {
             case "Internet Movie Database":
-                console.log("IMDB Rating: " + rating.Value);
+                logContent("IMDB Rating: " + rating.Value);
                 break;
             case "Rotten Tomatoes":
-                console.log("Rotton Tomatoes Rating: " + rating.Value);
+                logContent("Rotton Tomatoes Rating: " + rating.Value);
                 break;
         }
     });
 
-    console.log("Country Produced: " + data.Country);
-    console.log("Language: " + data.Language);
-    console.log("Plot: " + data.Plot);
+    logContent("Country Produced: " + data.Country);
+    logContent("Language: " + data.Language);
+    logContent("Plot: " + data.Plot);
 
     // Loop, format and print the actors on their own lines
     var actors = data.Actors.split(", ");
-    console.log("Actors:");
-    console.log("=======");
+    logContent("Actors:");
+    logContent("=======");
     actors.forEach(actor => {
-        console.log("   " + actor);
+        logContent("   " + actor);
     });
-    console.log("------------------------------------");
+    logContent("------------------------------------");
 }

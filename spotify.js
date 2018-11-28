@@ -3,6 +3,7 @@ module.exports = spotifyThisSong;
 
 // Get the API Keys
 var keys = require("./keys.js");
+var logContent = require("./util.js");
 
 //-----------------------------------------------------------------------
 // *public* function spotifyThisSong() - Spotify API Query
@@ -56,14 +57,14 @@ function parseSpotifyResponse(data) {
         // Loop through each artist on the album and write it out
         var artists = item.artists;
         artists.forEach(artist => {
-            console.log("Artist name:  " + artist.name);
+            logContent("Artist name:  " + artist.name);
         });
 
         console.log("Album name:  " + item.album.name);
         if (item.preview_url) {
-            console.log("Preview Link:  " + item.preview_url);
+            logContent("Preview Link:  " + item.preview_url);
         }
 
-        console.log("------------------------------------");
+        logContent("------------------------------------");
     });
 }

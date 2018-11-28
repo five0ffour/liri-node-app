@@ -2,8 +2,10 @@
 module.exports =  concertThis;
 
 // Get the API Keys
-var keys = require("./keys.js");
 var moment = require('moment');
+
+var keys = require("./keys.js");
+var logContent = require("./util.js");
 
 //-----------------------------------------------------------------------
 // *public* function concertThis() - BandsInTown API Query
@@ -35,18 +37,18 @@ function concertThis(artist) {
             if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                logContent(error.response.data);
+                logContent(error.response.status);
+                logContent(error.response.headers);
             } else if (error.request) {
                 // The request was made but no response was received
                 // `error.request` is an object that comes back with details pertaining to the error that occurred.
-                console.log(error.request);
+                logContent(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                console.log("Error: ", error.message);
+                logContent("Error: ", error.message);
             }
-            console.log(error.config);
+            logContent(error.config);
         });
 
 }
@@ -72,9 +74,9 @@ function parseBandsInTownResponse(data) {
         }
 
         // Write the formatted response to the console
-        console.log("Venue name:  " + event.venue.name);
-        console.log("Location:  " + venue);
-        console.log("Date:  " + eventDate.format("MM/DD/YYYY"));
-        console.log("------------------------------------");
+        logContent("Venue name:  " + event.venue.name);
+        logContent("Location:  " + venue);
+        logContent("Date:  " + eventDate.format("MM/DD/YYYY"));
+        logContent("------------------------------------");
     });
 }
