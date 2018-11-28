@@ -13,13 +13,13 @@ Examples:
   
 LIRI supports the follow commands and yields the corresponding content:
   
-|   | Command           | Result                                       |
-|---| ----------------- | -------------------------------------------- |
-|__1__| spotify-this-song | Artist(s)<br>The song's name<br>A preview link of the song from Spotify<br>The album that the song is from |
-|__2__| concert-this      | Name of the venue<br>Venue location<br>Date of the event |
-|__3__| movie-this        | Title of the movie<br>Year the movie came out<br>IMDB Rating of the movie<br>Rotten Tomatoes rating of the movie<br>Country where the movie was produced<br>Language of the movie<br>Plot of the movie<br>Actors in the movie |
-|__4__| do-what-I-say     | Runs the commands found in file random.txt   |
-|__5__| prompt-me         | Prompts the user through the commands to run |
+|       | Command           | Result                                                                                                                                                                                                                        |
+| ----- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| __1__ | spotify-this-song | Artist(s)<br>The song's name<br>A preview link of the song from Spotify<br>The album that the song is from                                                                                                                    |
+| __2__ | concert-this      | Name of the venue<br>Venue location<br>Date of the event                                                                                                                                                                      |
+| __3__ | movie-this        | Title of the movie<br>Year the movie came out<br>IMDB Rating of the movie<br>Rotten Tomatoes rating of the movie<br>Country where the movie was produced<br>Language of the movie<br>Plot of the movie<br>Actors in the movie |
+| __4__ | do-what-I-say     | Runs the commands found in file random.txt                                                                                                                                                                                    |
+| __5__ | prompt-me         | Prompts the user through the commands to run                                                                                                                                                                                  |
    
 __Note:__ LIRI doesn't like being stood up.  If you can't decide what movie or song to search,  LIRI will supply one for you  
 
@@ -59,21 +59,44 @@ __Note:__ LIRI doesn't like being stood up.  If you can't decide what movie or s
 *All APIs require an email to get a registered key*  
   
 ### How to install/run the application  
+1. Download and install the latest version of Node.js following the website instructions for your platform  
+   ` https://nodejs.org/en/download/`   
+2. Clone this repository into a clean diretory  
+   `$ git clone <repository url>`  
+3. Bring down the latest package dependencies using node package manager  
+   `npm install`  
+4. This package requires three keys to access the backend APIS. They are captured in a .env file which must be supplied to the root directory of the project. Use the source locations to request your own keys. Use your favorite IDE to enter the following keys-values pairs to the .env file with your keys supplied.  
   
-### Technology Used  
-- Node.js  
-- Axios  
-- Moment JS  
-- Inquirer  
-- npm Spotify  
-- npm dotenv  
-- Spotify API  
-- BandsInTown API  
-- OMDB API  
-- Node fs  
- 
+| API         | Keys Needed                                                          | Source                                                  |
+| ----------- | -------------------------------------------------------------------- | ------------------------------------------------------- |
+| Spotify     | SPOTIFY_ID=__yourSpotifyId__<br>SPOTIFY_SECRET=__yourspotifySecret__ | https://developer.spotify.com/                          |
+| OMDB        | OMDB_API_KEY=__yourOMDB_API_KEY__                                    | http://www.omdbapi.com/                                 |
+| BandsInTown | BANDSINTOWN_APP_ID=__yourBandsInTownAppId__                          | https://manager.bandsintown.com/support/bandsintown-api |
+  
+__Note:__  the .gitignore file is coded to preven your keys from being shared in your own git repository if  you so choose    
+
+5. Test the build using the supplied scripts.  Liri will run through through a sample call to each of the three backend APIS and display them on the console  
+   `npm test`  
+  
+### Technology Used
+    
+| Package/Interface | Version    | Description                                                              |
+| ----------------- | ---------- | ------------------------------------------------------------------------ |
+| Node.js           | __11.1.0__ | Main javascript engine for this application                              |
+| npm Axios         | __0.18.0__ | Package to handle the calls to the backend APIS                          |
+| npm Moment JS     | __2.22.2__ | Time library to parse the dates into a readable format                   |
+| npm Inquirer      | __6.2.0__  | Library to handle the command line prompting                             |
+| npm Spotify       | __1.0.7__  | Package that interfaces back to the spotify API servers                  |
+| npm dotenv        | __6.1.0__  | Utility package to hide the secret keys in a .env file and away from git |
+| Node fs           | n/a        | Built in file system utility package for reading/writing files           |
+| Spotify API       | n/a        | Website interface to access an online song databse                       |
+| BandsInTown API   | n/a        | Website interface to access an online concert events                     |
+| OMDB API          | __0.8.0__  | Website inteface to access an online movie databse                       |
+  
 ## Authors  
 Michael Galarneau - Initial work - five0ffour  
   
 ### Acknowledgements  
-  
+Spotify - https://www.spotify.com  
+OMDB - http://www.omdb.com  
+BandsInTown - http://bandsintown.com  
